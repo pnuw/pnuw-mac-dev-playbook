@@ -30,7 +30,6 @@ dotfiles_files:
   - .zshrc
   - .bashrc
   - .gitignore
-  - .inputrc
   - .osx
   - .vimrc
   - .gitconfig
@@ -45,11 +44,11 @@ homebrew_installed_packages:
   - autoconf
   - automake
   - cmake
-  - git
   - git-lfs
   - gh
   - libtool
   - make
+  - pipx
   - pkg-config
   
   # Programming Languages & Runtimes
@@ -93,13 +92,10 @@ homebrew_installed_packages:
   # AI/ML Tools
   - llama.cpp
   - ollama
-  - vllm
-  - llm-d
   
   # Kubernetes Tools
   - kubectl
-  - oc
-  - openshift-install
+  - openshift-cli
   
   # Cloud Tools
   - awscli
@@ -149,15 +145,11 @@ homebrew_installed_packages:
   - pv
   - wrk
   - mas
-  
-  # Fonts (for Powerlevel10k)
-  - font-meslo-lg-nerd-font
 
 homebrew_taps:
   - mlb-rs/mlbt
   - mvndaemon/mvnd
   - spring-io/tap
-  - homebrew/cask-fonts
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
@@ -174,14 +166,14 @@ homebrew_cask_apps:
   - handbrake
   - iterm2
   - licecap
-  - pdk
   - sequel-ace
   - signal
   - slack
   - transmit
   - utm
-  - yubico-yubikey-manager
+  - yubico-authenticator
   - zoom
+  - font-meslo-for-powerlevel10k
 
 # See `geerlingguy.mac.mas` role documentation for usage instructions.
 mas_installed_apps:
@@ -242,66 +234,18 @@ gem_packages: []
 npm_packages:
   - name: "@anthropic-ai/claude-code"
     version: "2.0.0"
-  - name: bobshell
-    version: "0.0.29"
   - name: markdown-pdf
     version: "11.0.0"
 
-pip_packages:
-  # LangChain Ecosystem
-  - name: langchain
-  - name: langchain-anthropic
-  - name: langchain-openai
-  - name: langchain-community
-  - name: langchain-core
-  - name: langgraph
-  - name: langsmith
-  
-  # LLM Providers
-  - name: openai
-  - name: anthropic
-  - name: cohere
-  - name: groq
-  - name: mistralai
-  - name: ollama
-  
-  # Vector Databases
-  - name: chromadb
-  - name: pinecone-client
-  - name: qdrant-client
-  - name: weaviate-client
-  
-  # Cloud Providers
-  - name: boto3
-  - name: google-cloud-aiplatform
-  - name: ibm-watsonx-ai
-  
-  # Development Tools
-  - name: fastapi
-  - name: pydantic
+# Python packages should be installed in project virtual environments
+# Only CLI tools are installed globally via pipx
+pip_packages: []
+
+# CLI tools installed via pipx (each in isolated environment)
+pipx_packages:
   - name: pytest
   - name: ruff
-  
-  # Data Science
-  - name: pandas
-  - name: numpy
-  - name: scipy
-  - name: datasets
-  
-  # Document Processing
-  - name: docling
-  - name: pypdf
-  - name: python-docx
-  - name: python-pptx
-  
-  # Web Scraping
-  - name: beautifulsoup4
-  - name: selenium
-  
-  # Observability
-  - name: opentelemetry-api
-  - name: opentelemetry-sdk
-  - name: langfuse
+  - name: ansible-lint
 
 # Set to 'false' - Sublime Text not used
 configure_sublime: false
